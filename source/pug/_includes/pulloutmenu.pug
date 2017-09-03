@@ -1,0 +1,54 @@
+.container-fluid
+	.row
+		.col-sm-12
+			h2.align-right MENU
+.container.full-width
+	.row
+		.col-full
+			.nav-side-menu
+				.menu-list
+					ul.menu-content.out
+						li
+							a(href="#") HOME
+						li
+							a(href="#") FEATURES
+						li(data-toggle="collapse" data-target="#features-submenu").active
+							a(href="javascript:;") TRAINING
+								span.arrow
+						ul#features-submenu.sub-menu.collapsed.active.in
+							li.active
+								a(href="#") Weight Loss
+							li
+								a(href="#") Running
+							li
+								a(href="#") Cycling
+							li
+								a(href="#") Fitness
+							li
+								a(href="#") Walking
+							li
+								a(href="#") Personal Training
+							li
+								a(href="#") Daily Workout
+						li(data-toggle="collapse" data-target="#shop-submenu").collapsed
+							a(href="javascript:;") Shop
+								span.arrow
+						ul#shop-submenu.sub-menu.collapse
+							li
+								a(href="#") Shop 1
+							li
+								a(href="#") Shop 2
+						li(data-toggle="collapse" data-target="#tips-submenu").collapsed
+							a(href="javascript:;") TIPS+VIDEOS
+								span.arrow
+						ul#tips-submenu.sub-menu.collapse
+							li
+								a(href="#") Tips
+							li
+								a(href="#") Videos
+						li
+							a(href="#") MY CART
+	br
+	.row
+		.col-sm-8.col-sm-push-2
+			a(href="#").btn.flat.full JOIN IFIT TODAY

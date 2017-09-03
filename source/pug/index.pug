@@ -1,0 +1,99 @@
+extends _extends/layout.pug
+block subheader
+  include _includes/weightlosssub.pug
+
+block content
+  .container.full-width
+   .row
+    .pageheader.full-width.hidden-xs
+      img(src="img/HeaderImg.png")
+   .row.overlay
+    .pageheadercontext.hidden-xs
+      .col-xs-7.col-xs-push-1
+       h1.animated.fadeIn
+        | Working out
+        br
+        | has never been so fun 
+       p.blurb
+        | Welcome to the center of it all. The Fitness Shop
+        br
+        | presents you with hundreds of workout programs
+        br
+        | designed to guide your weight loss journey.
+  .container.maincontent
+   .row
+    .col-full
+     h1.center Weight Loss
+     h5.center
+      | Welcome to the center of it all. The Fitness Shop presents you with hundreds of workout
+      br
+      | programs designed to guide your weight loss journey.
+     .col-full.gallery
+      .row
+        .col-xs-12.col-sm-6.col-md-3
+            a(href="#").hvr-grow-shadow
+              img(src="img/GetFit.png")
+              span.galleryheader Get Fit With Jillian Michaels
+              span.gallerybody weight loss
+        .col-xs-12.col-sm-6.col-md-3
+            a(href="#").hvr-grow-shadow 
+              img(src="img/GrandCanyon.png")
+              span.galleryheader Grand Canyon
+              span.gallerybody incline trainer
+        .col-xs-12.col-sm-6.col-md-3
+            a(href="#").hvr-grow-shadow 
+              img(src="img/PowerWalk.png")
+              span.galleryheader Power Walk
+              span.gallerybody walking
+        .col-xs-12.col-sm-6.col-md-3
+            a(href="#").hvr-grow-shadow 
+              img(src="img/EllipticalWeightLoss.png")
+              span.galleryheader Elliptical Weight Loss
+              span.gallerybody weight loss
+      .row
+        .col-xs-12.col-sm-6.col-md-3
+            a(href="#").hvr-grow-shadow 
+              img(src="img/OffSeasonWeightLoss.png")
+              span.galleryheader Off Season Weight Loss
+              span.gallerybody cycling
+        .col-xs-12.col-sm-6.col-md-3
+            a(href="#").hvr-grow-shadow 
+              img(src="img/CentralPark.png")
+              span.galleryheader Central Park
+              span.gallerybody fitness
+        .col-xs-12.col-sm-6.col-md-3
+            a(href="#").hvr-grow-shadow 
+              img(src="img/5kBeginnerTraining.png")
+              span.galleryheader 5K Beginner Training
+              span.gallerybody running
+        .col-xs-12.col-sm-6.col-md-3
+            a(href="#").hvr-grow-shadow 
+              img(src="img/GoingCoastal.png")
+              span.galleryheader Going Coastal
+              span.gallerybody wrunning
+      .row
+        .col-xs-12.col-sm-6.col-md-3
+            a(href="#").hvr-grow-shadow 
+              img(src="img/GetFit.png")
+              span.galleryheader Elliptical Weight Loss
+              span.gallerybody weight loss
+        .col-xs-12.col-sm-6.col-md-3
+            a(href="#").hvr-grow-shadow 
+              img(src="img/InclineTrain.png")
+              span.galleryheader Incline Train
+              span.gallerybody incline trainer
+        .col-xs-12.col-sm-6.col-md-3
+            a(href="#").hvr-grow-shadow 
+              img(src="img/Paris.png")
+              span.galleryheader Paris
+              span.gallerybody running
+        .col-xs-12.col-sm-6.col-md-3
+            a(href="#").hvr-grow-shadow 
+              img(src="img/GetFit.png")
+              span.galleryheader Lose Weight with Jillian Michaels
+              span.gallerybody weight loss
+      .row
+        .col-xs-12
+          a(href="#").btn.flat View More
+  include _includes/slider.pug
+  include _includes/jointoday.pug

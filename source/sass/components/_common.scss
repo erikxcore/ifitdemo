@@ -1,0 +1,109 @@
+$button-font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+$footer-fontsize:1rem;
+$footer-font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+$header-font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+
+.align-right{
+	text-align:right;
+}
+
+.navmenu-fixed-right {
+	left: auto !important;
+}
+
+.navbar-toggle {
+	left: auto !important;
+}
+
+body.canvas-sliding, body.canvas-slid {
+	left: auto !important;
+}
+
+.offcanvas.in + .navbar #menu .hidden-when-open {
+    display: none;
+}
+
+.full-width{
+	width:100%;
+	padding:0px;
+	margin:0px;
+	//height:100%;
+	.row{
+	    margin-left: 0px;
+	    margin-right: 0px;
+	}
+}
+
+.col-full{
+	width:100%;
+	.row{
+		margin-left:0px;
+		margin-right:0px;
+	}
+}
+
+
+.center{
+	text-align:center;
+	margin:0 auto;
+}
+
+#content{
+	position:relative;
+}
+
+.pageheader{
+	img{
+		width:100%;
+	}
+}
+
+.row.overlay{
+  position: absolute;
+  top: 0;
+  left:0;
+  z-index:1;
+  //bottom:0;
+  right:0;
+  //height:100%;
+}
+
+.pageheadercontext{
+	color:$white;
+	margin-top:24%;
+	h1{
+		text-transform:uppercase;
+	    font-weight: 100;
+	    letter-spacing: 2px;
+	    animation-duration:3s;
+	    animation-delay:1s;
+
+	}
+}
+
+.btn{
+	&.flat{
+	background-color: $lightblue;
+    color: white;
+    font-family: $button-font-family;
+    border: 0px;
+    border-radius: 0px;
+    padding: 15px 35px;
+	    &:hover{
+			text-shadow:0px 0px 1px white;
+	    }
+	}
+	&.full{
+		width:100%;
+	}
+}
+
+.maincontent{
+	h1{
+		margin:25px 0px;
+		font-weight:200;
+	}
+	h5{
+		margin:15px 0px;
+	}
+}

@@ -1,0 +1,160 @@
+#footer{
+  font-family:$footer-font-family;
+  color:$footer-text-color;
+  background-color:$footer-background-color;
+  font-size:$footer-fontsize;
+
+  .copyright{
+    padding:20px 0px;
+  }
+  ul.list-inline{
+    font-weight:bold;
+    text-transform:uppercase;
+    padding: 20px 0px;
+    margin: 0px;  
+    a{
+      color:$footer-text-color;
+      text-decoration:none;
+      &:hover{
+        color:$white;
+        text-decoration:none;
+        cursor:pointer;
+      }
+    }
+
+    &.default{
+      li{
+        padding:0px;
+        &:after{
+          content: "/";
+          padding: 0px 5px 0px 5px;
+        }
+
+        &:last-child{
+          &:after{
+            content: "";
+          }
+        }
+      }
+    }
+
+    &.social{
+      font-size:1.2rem;
+      li:after{
+        content: "";
+      }
+    }
+
+  }
+
+#language-selector{
+padding:15px 0px;
+
+select {
+  padding: 10px !important;
+  margin: 0 0 20px 0 !important;
+}
+
+button{
+  .btn{
+    font-size: $footer-fontsize;
+  }
+}
+
+label{
+  vertical-align: text-top;
+}
+
+.bootstrap-select {
+  .btn{
+    font-size: $footer-fontsize;
+  }
+  .btn-default {
+    color: $footer-text-color;
+    border: 0px;
+    background-color: transparent;
+    &:focus {
+      outline: none !important;
+    }
+    &:active {
+      color: $white;
+      background-color: transparent;
+    }
+  }
+  .dropdown-menu {
+    border: 0px;
+    background-color: $footer-background-color;
+    font-size: $footer-fontsize;
+    padding: 0px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    li {
+      a {
+        color: $darkgrey;
+        padding: 8px 10px;
+        &:hover {
+          color: $white;
+          text-decoration: underline;
+        }
+        &:active {
+          color: $white;
+          background-color: $lightblue;
+        }
+      }
+    }
+    li.selected {
+      a {
+        background: $lightblue;
+        color: $white;
+      }
+      &:hover {
+        a {
+          background: $lightblue;
+          color: $white;
+        }
+      }
+    }
+  }
+  a {
+    &:focus {
+      outline: none !important;
+    }
+  }
+}
+.bootstrap-select.open {
+  .btn-default {
+    color: $white;
+    background-color: transparent;
+    border-radius: 3px;
+    border: 0px;
+    &:hover {
+      color: $white;
+      background-color: transparent;
+      border-radius: 0px;
+      border: 0px;
+    }
+  }
+}
+.bootstrap-select.btn-group {
+  .dropdown-menu {
+    li {
+      a {
+        &:hover {
+          background-color: transparent;
+          border: 0px;
+          text-decoration: underline;
+        }
+      }
+    }
+      li.selected{
+        a {
+          &:hover {
+            background-color: $lightblue;
+          }
+        }
+      }
+  }
+}
+}
+
+}

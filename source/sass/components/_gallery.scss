@@ -1,0 +1,34 @@
+.gallery{
+	padding:25px 0px;
+	a{
+		display: block;
+	    margin: 0 auto;
+	    width: 241px;
+   		padding: 20px 0px;
+   		overflow: hidden;
+   		z-index:1;
+   		position:relative;
+   		&:hover{
+   			z-index:5;
+   		}
+	}
+	img{
+		display:inline-block;
+		float:left;
+		max-width:100%;
+	}
+	.galleryheader{
+		color:$black;
+		float:left;
+		clear:both;
+	}
+	.gallerybody{
+		font-style:italic;
+		color:$smokegrey;
+		float:left;
+		clear:both;
+	}
+	.row{
+		padding:15px 0px;
+	}
+}

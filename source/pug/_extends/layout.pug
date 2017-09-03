@@ -1,0 +1,11 @@
+doctype html
+html(class="no-js" lang="en")
+  include ../_includes/head.pug
+  include ../_includes/header.pug
+  body
+      block subheader  
+      block content
+      
+      include ../_includes/foot.pug
+      
+      script(src='js/app.js' type='text/javascript')

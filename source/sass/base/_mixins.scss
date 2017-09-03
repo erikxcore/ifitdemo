@@ -1,0 +1,349 @@
+@mixin background-opacity($color, $opacity: 0.3) {
+    background: $color; /* The Fallback */
+    background: rgba($color, $opacity);
+}
+
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+$browser-context: 16; 
+
+@function em($pixels, $context: $browser-context) {
+  $emsize: $pixels/$context;
+  @return $emsize * 1em;
+}
+
+@mixin center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+@mixin size($width, $height: $width) {
+      width: $width;
+      height: $height;
+}
+
+@mixin position($position, $args) { 
+  @each $o in top right bottom left {
+        $i: index($args, $o);
+
+    @if $i and $i + 1 <= length($args) and type-of(nth($args, $i + 1)) == number  {
+          #{$o}: nth($args, $i + 1);
+    }
+  }
+
+  position: $position;
+}
+
+@mixin absolute($args) {
+        @include position("absolute", $args);
+}
+
+@mixin fixed($args) {
+        @include position("fixed", $args);
+}
+
+@mixin relative($args) {
+        @include position("relative", $args);
+}
+
+// generic transform
+@mixin transform($transforms) {
+     -moz-transform: $transforms;
+       -o-transform: $transforms;
+      -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+          transform: $transforms;
+}
+// rotate
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+ 
+// scale
+@mixin scale($scale) {
+   @include transform(scale($scale));
+} 
+// translate
+@mixin translate ($x, $y) {
+   @include transform(translate($x, $y));
+}
+// skew
+@mixin skew ($x, $y) {
+   @include transform(skew(#{$x}deg, #{$y}deg));
+}
+//transform origin
+@mixin transform-origin ($origin) {
+    moz-transform-origin: $origin;
+       -o-transform-origin: $origin;
+      -ms-transform-origin: $origin;
+  -webkit-transform-origin: $origin;
+          transform-origin: $origin;
+}
+
+/*
+USAGE:
+p {
+  @include font-size(14px)
+}
+*/
+
+@mixin view-large {
+  @media only screen and (max-width: 60em) {
+    @content;
+  }
+}
+
+@mixin view-medium {
+  @media only screen and (max-width: 40em) {
+    @content;
+  }
+}
+
+@mixin view-small {
+  @media only screen and (max-width: 30em) {
+    @content;
+  }
+}
+
+/*
+USAGE:
+.sidebar {
+  width: 60%;
+  float: left;
+  margin: 0 2% 0 0;
+  @include view-small {
+    width: 100%;
+    float: none;
+    margin: 0;
+  }
+}
+*/
+
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }  
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }  
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin animation($str) {
+
+  $str: unquote($str);
+
+  -webkit-animation: $str;
+  -moz-animation: $str;
+  -ms-animation: $str;
+  -o-animation: $str;
+  animation: $str;    
+
+}
+
+/*
+USAGE:
+@include keyframes(slide-down) {
+  0% { opacity: 1; }
+  90% { opacity: 0; }
+}
+.element {
+  width: 100px;
+  height: 100px;
+  background: black;
+  @include animation('slide-down 5s 3');
+}
+*/
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+/*
+USAGE:
+a {
+  color: gray;
+  @include transition(color .3s ease);
+  &:hover {
+    color: black;
+  }
+}
+*/
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+/*
+USAGE:
+.faded-text {
+  @include opacity(0.8);
+}
+*/
+
+%clearfix {
+  *zoom: 1;
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+/*
+USAGE:
+.container-with-floated-children {
+  @extend %clearfix;
+}
+*/
+
+%visuallyhidden {
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
+
+/*
+USAGE:
+<button class="mobile-navigation-trigger">
+  <b class="visually-hidden">Open the navigation</b>
+  <img src="img/mobile-navigation-icon.svg">
+</button>
+.visually-hidden {
+  @extend %visuallyhidden;
+}
+*/
+
+@mixin vendorize($property, $value) {
+	-webkit-#{$property}: $value;
+	-moz-#{$property}: $value;
+	-ms-#{$property}: $value;
+	-o-#{$property}: $value;
+	#{$property}: $value;
+}
+
+/*
+USAGE:
+.vendor_me{
+	@include vendorize('transition','5s slow');
+}
+*/
+
+@mixin linkTextOffscreen() {
+    text-indent: -9999px;
+    overflow: hidden;
+    text-decoration: none;
+    display: block;
+    font-size: 0;
+    text-align: start;
+}
+
+/*
+USAGE:
+.link{
+	@include linkTextOffscreen;
+}
+*/
+
+@mixin hoverActiveFocus($property, $value) {
+    &:hover, &:active, &:focus {
+        #{$property}: $value;
+    }
+}
+
+@mixin gradient-border($color1, $color2, $border-width, $direction) {
+  border: none;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(#{$direction}, $color1 0%, $color2 100%), linear-gradient(#{$direction}, $color1 0%, $color2 100%);
+  @if $direction == 'to right' or $direction == 'to left' {
+    @if $direction == 'to right' {
+      border-left: $border-width solid $color1;
+      border-right: $border-width solid $color2;
+    } @else {
+      border-left: $border-width solid $color2;
+      border-right: $border-width solid $color1;
+    }
+    background-position: 0 0, 0 100%;
+    background-size: 100% $border-width;
+  }
+  
+  @if $direction == 'to top' or $direction == 'to bottom' {
+    @if $direction == 'to top' {
+      border-top: $border-width solid $color2;
+      border-bottom: $border-width solid $color1;
+    } @else {
+      border-top: $border-width solid $color1;
+      border-bottom: $border-width solid $color2;
+    }
+    background-position: 0 0, 100% 0;
+    background-size: $border-width 100%;
+  }
+}
+
+@mixin gradient-border-all($color1, $color2, $border-width, $direction) {
+  border: none;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(#{$direction}, $color1 0%, $color2 100%), linear-gradient(#{$direction}, $color1 0%, $color2 100%);
+  @if $direction == 'to right' or $direction == 'to left' {
+    @if $direction == 'to right' {
+      border-left: $border-width solid $color1;
+      border-right: $border-width solid $color2;
+      border-top: $border-width solid $color2;
+      border-bottom: $border-width solid $color1;
+    } @else {
+      border-left: $border-width solid $color2;
+      border-right: $border-width solid $color1;
+      border-top: $border-width solid $color1;
+      border-bottom: $border-width solid $color2;
+    }
+    background-position: 0 0, 0 100%;
+    background-size: 100% $border-width;
+  }
+  
+  @if $direction == 'to top' or $direction == 'to bottom' {
+    @if $direction == 'to top' {
+      border-top: $border-width solid $color2;
+      border-bottom: $border-width solid $color1;
+      border-left: $border-width solid $color1;
+      border-right: $border-width solid $color2;
+    } @else {
+      border-top: $border-width solid $color1;
+      border-bottom: $border-width solid $color2;
+      border-left: $border-width solid $color2;
+      border-right: $border-width solid $color1;
+    }
+    background-position: 0 0, 100% 0;
+    background-size: $border-width 100%;
+  }
+}

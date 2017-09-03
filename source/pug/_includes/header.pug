@@ -1,0 +1,26 @@
+#header
+	#navigation
+		.container-fluid
+			.row
+				.col-sm-12
+					#menu
+						#offcanvasnav.navmenu.navmenu-fixed-right.navmenu-site.offcanvas(role="navigation")
+							include pulloutmenu.pug
+						.navbar.navbar-default.navbar-fixed-top.transparent
+							#logo.col-sm-3.pull-left
+								a(href="#")
+									img(src="img/iFitlogo.png")
+							#menu.col-sm-9
+								ul.list-inline
+									li.top
+										a(href="#") LOGIN
+									li.top
+										a(href="#") SIGN UP
+									li.top
+										a(data-toggle="offcanvas" data-target="#offcanvasnav" href="javascript:;").navbar-toggle
+											span.inline-menu
+												span.icon-text MENU
+												span.icon-bars
+													span.icon-bar
+													span.icon-bar
+													span.icon-bar

@@ -1,0 +1,19 @@
+#slider{
+	background-color:$slider-background-color;
+	
+	.carousel{
+		&.slide{
+			padding:80px 0px;
+		}
+		.carousel-indicators{
+			bottom:5px;
+			li{
+				border-color: $lightblue;
+				&.active{
+					background-color: $lightblue;
+				}
+			}
+		}
+	}
+
+}
