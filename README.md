@@ -17,17 +17,11 @@ Hover.css
 
 For deployment, /build should be used. If you would like to rebuild the project please run npm install and then 'gulp' to begin the default task.
 
-There are two ways to use this package:<br />
-<h4>Method 1 (Retains /build)</h4>
+There is one way to use this package:<br />
+<h4>Method 1 (Use Gulp to generate a new /build, downloads any depedencies)</h4>
 
 ```
 npm install
-```
-
-<h4>Method 2 (Use Gulp to generate a new /build, downloads any depedencies)</h4>
-
-```
-npm start
 ```
 
 For development Live Reload is implemented by the gulp task 'gulp webserver', however, if you run the 'gulp watch' or 'gulp watch:babel' tasks your source directories will be watched accordingly, as well.<br />
